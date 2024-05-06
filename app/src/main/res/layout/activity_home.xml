@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/listOrders"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradiant_lis"
+    tools:context=".Home">
+
+    <Button
+        android:id="@+id/products_home"
+        style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton.Icon"
+        android:layout_width="wrap_content"
+        android:layout_height="54dp"
+        android:backgroundTint="#948979"
+        app:icon="@drawable/home"
+        app:iconTint="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/home_product" />
+
+    <Button
+        android:id="@+id/home_product"
+        style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton.Icon"
+        android:layout_width="wrap_content"
+        android:layout_height="54dp"
+        android:backgroundTint="#153448"
+        app:icon="@drawable/people__1_"
+        app:iconTint="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/products_home"
+        app:layout_constraintEnd_toStartOf="@id/cart_home" />
+
+    <Button
+        android:id="@+id/cart_home"
+        style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton.Icon"
+        android:layout_width="wrap_content"
+        android:layout_height="54dp"
+        android:backgroundTint="#948979"
+        app:icon="@drawable/shopping"
+        app:iconTint="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/home_product"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+    <TextView
+        android:id="@+id/name_home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/baseline_assignment_ind_24"
+        android:text="Name"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.259" />
+
+    <TextView
+        android:id="@+id/email_home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/baseline_alternate_email_24"
+        android:text="Email"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.186" />
+
+    <Button
+        android:id="@+id/order_home"
+        style="@style/Widget.Material3.Button.IconButton.Outlined"
+        android:layout_width="331dp"
+        android:layout_height="47dp"
+        android:text="My Orders"
+        android:textColor="@color/black"
+        app:icon="@drawable/resource_package"
+        app:iconTint="#153448"
+        app:layout_constraintBottom_toBottomOf="@+id/home_product"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.4" />
+
+    <Button
+        android:id="@+id/address_home"
+        style="@style/Widget.Material3.Button.IconButton.Outlined"
+        android:layout_width="332dp"
+        android:layout_height="47dp"
+        android:text="My Address"
+        android:textColor="@color/black"
+        app:icon="@drawable/location"
+        app:iconTint="#153448"
+        app:layout_constraintBottom_toBottomOf="@+id/home_product"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.491" />
+
+    <Button
+        android:id="@+id/signout_home"
+        style="@style/Widget.Material3.Button.IconButton.Outlined"
+        android:layout_width="333dp"
+        android:layout_height="45dp"
+        android:text="Sign out"
+        android:textColor="@color/black"
+        app:icon="@drawable/logout"
+        app:iconTint="#FD0303"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.584" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

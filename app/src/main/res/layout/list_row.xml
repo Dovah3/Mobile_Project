@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="15dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <ImageView
+        android:id="@+id/product_image"
+        android:layout_width="60dp"
+        android:layout_height="49dp"
+        android:layout_alignParentStart="true"
+        android:src="@drawable/ic_launcher_background" />
+
+    <!-- TextView to the left of product name -->
+    <TextView
+        android:id="@+id/number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/product_name"
+        android:layout_marginLeft="16dp"
+        android:layout_toRightOf="@id/product_image"
+        android:text="num"
+        android:textSize="16sp"
+        android:textColor="@android:color/black"/>
+
+    <TextView
+        android:id="@+id/product_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/product_image"
+        android:layout_marginLeft="16dp"
+        android:layout_toRightOf="@id/number"
+        android:text="Product Name"
+        android:textSize="18sp"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"/>
+
+
+    <ImageView
+        android:id="@+id/removeLs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/product_name"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="16dp"
+        android:layout_toRightOf="@id/product_name"
+        android:src="@drawable/remove" />
+
+</RelativeLayout>
