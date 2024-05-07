@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -30,6 +31,8 @@ public class Products extends AppCompatActivity {
     String userName, userEmail, userPhoneNumber, userCountry, userStreet;
     ProductAdapter adapter;
     List<Product> productList = new ArrayList<>();
+    EditText searchEditText;
+    Button searchButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +44,8 @@ public class Products extends AppCompatActivity {
         animationDrawable.setExitFadeDuration(5000);
         animationDrawable.start();
 
+        searchEditText = findViewById(R.id.search_edit_text);
+        searchButton = findViewById(R.id.search_button);
         DatabaseOpenHelper dbHelper = new DatabaseOpenHelper(this);
         database = dbHelper.getWritableDatabase();
 
@@ -53,6 +58,14 @@ public class Products extends AppCompatActivity {
         userStreet = intent.getStringExtra("street");
         userName = intent.getStringExtra("name");
         userEmail = intent.getStringExtra("email");
+
+        searchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String searchText = searchEditText.getText().toString();
+                performSearch(searchText);
+            }
+        });
 
         home.setOnClickListener(v -> {
             Intent i2 = new Intent(Products.this, Home.class);
@@ -86,6 +99,24 @@ public class Products extends AppCompatActivity {
             startActivity(i2);
             finish();
         });
+    }
+
+    private void performSearch(String searchText) {
+        List<Product> filteredList = new ArrayList<>();
+
+        String searchTextLowerCase = searchText;
+
+        for (Product product : productList) {
+            String productNameLowerCase = product.getName();
+
+            if (productNameLowerCase.contains(searchTextLowerCase)) {
+                filteredList.add(product);
+            }
+        }
+
+        adapter.clear();
+        adapter.addAll(filteredList);
+        adapter.notifyDataSetChanged();
     }
 
     class ProductAdapter extends ArrayAdapter<Product> {
@@ -134,7 +165,6 @@ public class Products extends AppCompatActivity {
                     Toast.makeText(context, "Cannot increase quantity. Exceeds available quantity.", Toast.LENGTH_SHORT).show();
                 }
             });
-
             addToCartButton.setOnClickListener(v -> {
                 int purchaseQuantity = Integer.parseInt(quantityText.getText().toString());
                 if (purchaseQuantity > 0) {
